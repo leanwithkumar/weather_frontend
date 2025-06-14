@@ -13,7 +13,7 @@ function Weatherapp() {
     if (!city.trim()) return;
 
     try {
-      const response = await fetch(`https://weather-backend-cyan.vercel.app/weather?city=${encodeURIComponent(cityname)}`);
+      const response = await fetch(`https://weather-backend-bl8q.onrender.com/?city=${encodeURIComponent(cityname)}`);
       const data = await response.json();
       const temp = data.current.temp_c;
       const iconlink = data.current.condition.icon;
