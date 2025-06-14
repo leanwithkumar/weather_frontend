@@ -3,7 +3,7 @@ import { useState } from 'react';
 function Weatherapp() {
   const [city, setCity] = useState('');
   const [temperature, setTemperature] = useState('');
-  const [imglink, setImglink] = useState('');
+  const [imglink, setImglink] = useState('https://cdn-icons-png.freepik.com/256/17112/17112207.png?semt=ais_hybrid');
   const [realcity, setRealcity] = useState('');
   const [windspeed, setWindspeed] = useState('');
   const [humidity, setHumidity] = useState('');
@@ -13,7 +13,7 @@ function Weatherapp() {
     if (!city.trim()) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/weather?city=${encodeURIComponent(cityname)}`);
+      const response = await fetch(`http://localhost:5000/?city=${encodeURIComponent(cityname)}`);
       const data = await response.json();
       const temp = data.current.temp_c;
       const iconlink = data.current.condition.icon;
@@ -64,7 +64,7 @@ function Weatherapp() {
         </div>
 
         <div className="flex justify-center mt-6">
-          <img src={imglink} alt="Weather Icon" className="w-28 h-28 md:w-36 md:h-36" />
+          <img src={imglink} className="w-28 h-28 md:w-36 md:h-36" />
         </div>
 
         <div className="mt-4 text-center text-lg md:text-xl">
